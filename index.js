@@ -4,6 +4,8 @@ import { join } from 'path'
 import { fetch } from 'cross-fetch'
 import exec from './util/exec.js'
 import { createRequire } from 'module'
+import os from 'os'
+
 const require = createRequire(import.meta.url)
 
 const TYPE_VALUES = {

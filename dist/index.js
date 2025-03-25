@@ -31512,7 +31512,11 @@ async function execute(executable, args, execOptions = {}) {
 
 ;// CONCATENATED MODULE: external "module"
 const external_module_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("module");
+// EXTERNAL MODULE: external "os"
+var external_os_ = __nccwpck_require__(857);
 ;// CONCATENATED MODULE: ./index.js
+
+
 
 
 
@@ -31583,7 +31587,7 @@ async function run() {
     // 不存在相同版本，结束进程
     if (!isDoubleVersion) {
       core.setOutput('exists', 0)
-      core.info(`No equivalent version of npm exists, verify done!${os.EOL}`)
+      core.info(`No equivalent version of npm exists, verify done!${external_os_.EOL}`)
       process.exit(core.ExitCode.Success)
     }
 
@@ -31591,7 +31595,7 @@ async function run() {
     core.setOutput('exists', 0)
     //
     if (type === TYPE_VALUES['double-check']) {
-      core.info(`Npm has the same version, verify done!${os.EOL}`)
+      core.info(`Npm has the same version, verify done!${external_os_.EOL}`)
       process.exit(core.ExitCode.Success)
     } else if (type === TYPE_VALUES['limited-cover']) {
       // 获取工具的路径并通过路径解析
