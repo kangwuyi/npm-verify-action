@@ -37,6 +37,7 @@ jobs:
           is-scope: '0'
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+        run: ls -la 
 
       - name: Publish if necessary
         id: publish
