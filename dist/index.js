@@ -29637,6 +29637,21 @@ module.exports = eval("require")("encoding");
 
 /***/ }),
 
+/***/ 8641:
+/***/ ((module) => {
+
+function webpackEmptyContext(req) {
+	var e = new Error("Cannot find module '" + req + "'");
+	e.code = 'MODULE_NOT_FOUND';
+	throw e;
+}
+webpackEmptyContext.keys = () => ([]);
+webpackEmptyContext.resolve = webpackEmptyContext;
+webpackEmptyContext.id = 8641;
+module.exports = webpackEmptyContext;
+
+/***/ }),
+
 /***/ 2613:
 /***/ ((module) => {
 
@@ -31559,6 +31574,11 @@ module.exports = /*#__PURE__*/JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat */
 /******/ 	
 /******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
@@ -31660,8 +31680,8 @@ async function execute(executable, args, execOptions = {}) {
 
 
 
-
-const index_require = /* createRequire() */ undefined
+// import { createRequire } from 'module'
+// const require = createRequire(import.meta.url)
 
 const TYPE_VALUES = {
   'double-check': 'double-check',
@@ -31690,7 +31710,7 @@ const parsePackageFile = async (ws) => {
     throw new Error("package.json could not be found in your project's root.")
   }
 
-  return index_require(localFilePath)
+  return __nccwpck_require__(8641)(localFilePath)
 }
 
 async function run() {
