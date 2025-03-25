@@ -2,7 +2,9 @@ import * as core from '@actions/core'
 import { existsSync } from 'fs'
 import { join } from 'path'
 import { fetch } from 'cross-fetch'
-import exec from './util/exec'
+import exec from './util/exec.js'
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
 
 const TYPE_VALUES = {
   'double-check': 'double-check',
@@ -27,7 +29,6 @@ const doubleCheck = async (registry, name, version) => {
 // 加载文件
 const parsePackageFile = async (ws) => {
   const localFilePath = join(ws, 'package.json')
-  core.info(`workspace is ${ws}, localFilePath is ${localFilePath}`)
   if (!existsSync(localFilePath)) {
     throw new Error("package.json could not be found in your project's root.")
   }
