@@ -31561,6 +31561,7 @@ async function run() {
     if (!workspace) {
       throw new Error('action not being run in a valid github workspace')
     }
+    core.info(`start parse local package.json`)
     // 解析项目本地 package 文件
     const { name, version } = parsePackageFile(workspace)
     // type = limited-cover 覆盖，如果存在相同版本则覆盖（如果时间限制之内可删除）
@@ -31582,6 +31583,7 @@ async function run() {
     let registry = core.getInput('registry')
     if (!registry) registry = 'registry.npmjs.org'
     //
+    core.info(`start check pkg version`)
     const isDoubleVersion = await doubleCheck(registry, name, version)
 
     // 不存在相同版本，结束进程
@@ -31592,12 +31594,13 @@ async function run() {
     }
 
     // 存在相同版本
-    core.setOutput('exists', 0)
+    core.setOutput('exists', 1)
     //
     if (type === TYPE_VALUES['double-check']) {
       core.info(`Npm has the same version, verify done!${external_os_.EOL}`)
       process.exit(core.ExitCode.Success)
     } else if (type === TYPE_VALUES['limited-cover']) {
+      core.info(`start del same pkg version in online`)
       // 获取工具的路径并通过路径解析
       const npmPath = await io.which('npm', true)
       // 注册 registry
