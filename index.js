@@ -27,6 +27,7 @@ const doubleCheck = async (registry, name, version) => {
 // 加载文件
 const parsePackageFile = async (ws) => {
   const localFilePath = join(ws, 'package.json')
+  core.info(`workspace is ${ws}, localFilePath is ${localFilePath}`)
   if (!existsSync(localFilePath)) {
     throw new Error("package.json could not be found in your project's root.")
   }
