@@ -45,7 +45,7 @@ async function run() {
     const type = core.getInput('type')
     if (type || !TYPE_VALUES[type]) {
       throw new Error(
-        '缺少 type 参数或参数异常，可选值 double-check 版本重复检查, limited-cover 优先覆盖检查',
+        `输入的 ${type} 参数异常，可选值 double-check 版本重复检查, limited-cover 优先覆盖检查`,
       )
     }
     // 是否是作用域私有包
