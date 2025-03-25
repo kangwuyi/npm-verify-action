@@ -1,5 +1,4 @@
 import * as core from '@actions/core'
-import * as exec from '@actions/exec'
 import { existsSync } from 'fs'
 import { join } from 'path'
 import { fetch } from 'cross-fetch'
