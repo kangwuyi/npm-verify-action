@@ -30,7 +30,7 @@ jobs:
 
       - name: ls file
         run: ls -la 
-        run: pwd
+      - run: pwd
 
       - name: Check publish status
         id: check
