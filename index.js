@@ -3,8 +3,8 @@ import { existsSync } from 'fs'
 import { join } from 'path'
 import { fetch } from 'cross-fetch'
 import exec from './util/exec.js'
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url)
+// import { createRequire } from 'module'
+// const require = createRequire(import.meta.url)
 
 const TYPE_VALUES = {
   'double-check': 'double-check',
