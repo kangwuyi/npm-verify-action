@@ -3,8 +3,8 @@ import { existsSync } from 'fs'
 import { join } from 'path'
 import { fetch } from 'cross-fetch'
 import exec from './util/exec.js'
-// import { createRequire } from 'module'
-// const require = createRequire(import.meta.url)
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
 
 const TYPE_VALUES = {
   'double-check': 'double-check',
@@ -42,6 +42,8 @@ async function run() {
     if (!workspace) {
       throw new Error('action not being run in a valid github workspace')
     }
+    // 解析项目本地 package 文件
+    const { name, version } = parsePackageFile(workspace)
     // type = limited-cover 覆盖，如果存在相同版本则覆盖（如果时间限制之内可删除）
     // type = double-check 版本重复检查，重复则跳过
     const type = core.getInput('type')
@@ -60,8 +62,6 @@ async function run() {
     //
     let registry = core.getInput('registry')
     if (!registry) registry = 'registry.npmjs.org'
-    // 解析项目本地 package 文件
-    const { name, version } = parsePackageFile(workspace)
     //
     const isDoubleVersion = await doubleCheck(registry, name, version)
 

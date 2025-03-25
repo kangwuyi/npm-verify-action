@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "description": "npm version verify action by github",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build": "ncc build index.js --license licenses.txt"
+    "build": "ncc build index.js --license licenses.txt",
+    "local": "GITHUB_WORKSPACE=/home/kangjian/anoii-module/npm-verify-action node index.js --type 1"
   },
   "repository": {
     "type": "git",
