@@ -30,7 +30,8 @@ jobs:
 
       - name: ls file
         run: ls -la 
-        
+        run: pwd
+
       - name: Check publish status
         id: check
         uses: ./
