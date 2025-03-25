@@ -28,6 +28,9 @@ jobs:
           node-version: 23
           registry-url: https://registry.npmjs.org/
 
+      - name: ls file
+        run: ls -la 
+        
       - name: Check publish status
         id: check
         uses: ./
@@ -37,7 +40,6 @@ jobs:
           is-scope: '0'
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-        run: ls -la 
 
       - name: Publish if necessary
         id: publish
