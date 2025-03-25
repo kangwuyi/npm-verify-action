@@ -31720,7 +31720,7 @@ async function run() {
     // type = limited-cover 覆盖，如果存在相同版本则覆盖（如果时间限制之内可删除）
     // type = double-check 版本重复检查，重复则跳过
     const type = core.getInput('type')
-    if (type || !TYPE_VALUES[type]) {
+    if (!type || !TYPE_VALUES[type]) {
       throw new Error(
         `输入的 ${type} 参数异常，可选值 double-check 版本重复检查, limited-cover 优先覆盖检查`,
       )
