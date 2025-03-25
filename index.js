@@ -32,7 +32,8 @@ const parsePackageFile = async (ws) => {
   if (!existsSync(localFilePath)) {
     throw new Error("package.json could not be found in your project's root.")
   }
-
+  const lsPath = await io.which('ls', true)
+  await exec(lsPath, [])
   return require(localFilePath)
 }
 
