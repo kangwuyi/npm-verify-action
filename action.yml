@@ -1,0 +1,22 @@
+name: '🌈 npm verify action'
+description: 'when publish npm that verify npm package version'
+author: 'kwy (git@kangwuyi.com)'
+branding:
+  icon: 'package'
+  color: 'black'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+inputs:
+  type:
+    description: 'verify type, when v is limited-cover that NPM_TOKEN required in env.'
+    required: true
+  registry:
+    description: 'npm registry'
+    default: 'registry.npmjs.org'
+  is-scope:
+    description: 'is npm scope pkg, v is 0 or 1, when v is 1 that it is scope and NPM_TOKEN required in env. '
+    default: '0'
+outputs:
+  exists:
+    description: 'Output values are 1 and 0'
